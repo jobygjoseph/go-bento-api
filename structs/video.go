@@ -42,6 +42,6 @@ package structs
 // }
 
 type Video struct {
-	_id       string
-	videoType string
+	ID        string `bson:"_id"`
+	VideoType string `bson:"videoType"`
 }

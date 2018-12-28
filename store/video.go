@@ -2,7 +2,7 @@ package store
 
 import (
 	"context"
-	"fmt"
+	"log"
 	"time"
 
 	"github.com/go-bento-api/structs"
@@ -18,10 +18,10 @@ func (vd *Video) FindByID(id string) structs.Video {
 	var result structs.Video
 
 	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
-	filter := bson.D{{"id": id}}
+	filter := bson.M{"_id": id}
 	err := vd.collection.FindOne(ctx, filter).Decode(&result)
 	if err != nil {
-		panic(fmt.Sprintf("Error retreiving the document from mongo: (id: \"%v\")", id))
+		log.Fatal(err)
 	}
 	return result
 }

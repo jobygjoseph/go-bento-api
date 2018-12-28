@@ -2,7 +2,7 @@ package store
 
 import (
 	"context"
-	"fmt"
+	"log"
 	"time"
 
 	"github.com/mongodb/mongo-go-driver/mongo"
@@ -18,7 +18,7 @@ func CreateStore() Store {
 	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
 	client, err := mongo.Connect(ctx, mongohost)
 	if err != nil {
-		panic(fmt.Sprintf("Error connecting to mongodb: %s", mongohost))
+		log.Fatal(err)
 	}
 
 	dbClient := client.Database("warehouse") //.Collection("numbers")
