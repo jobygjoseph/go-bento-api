@@ -1,42 +1,47 @@
 package structs
 
 // Video struct
+// type Video struct {
+// 	AlternateTeaseImages    string `json:"title"`
+// 	AssociatedVideoPlaylist string `json:"title2"`
+// 	AutoCuration            string `json:"title3"`
+// 	ClosedCaptioning        string `json:"title4"`
+// 	DateAvailable           string `json:"title5"`
+// 	DateBroadcast           string `json:"title6"`
+// 	DateCreated             string `json:"title7"`
+// 	DateModified            string `json:"title8"`
+// 	DatePublished           string `json:"title9"`
+// 	DefaultAssociation      string `json:"title10"`
+// 	Description             string `json:"title11"`
+// 	DocumentTracing         string `json:"title12"`
+// 	Duration                string `json:"title13"`
+// 	Expires                 string `json:"title14"`
+// 	Flag                    string `json:"title15"`
+// 	HasCaptions             string `json:"title16"`
+// 	Headline                string `json:"title17"`
+// 	Hidden                  string `json:"title18"`
+// 	ID                      string `json:"_id"`
+// 	LegacyData              string `json:"title20"`
+// 	LiveVideoStatus         string `json:"title21"`
+// 	MpxMetadata             string `json:"title22"`
+// 	NativeAd                string `json:"title23"`
+// 	Playable                string `json:"title24"`
+// 	PrimaryImage            string `json:"title25"`
+// 	Publisher               string `json:"title26"`
+// 	RelatedURL              string `json:"title27"`
+// 	Searchable              string `json:"title28"`
+// 	Sentiment               string `json:"title29"`
+// 	Source                  string `json:"title30"`
+// 	Taxonomy                string `json:"title31"`
+// 	TeaseImage              string `json:"title32"`
+// 	Type                    string `json:"title37"`
+// 	Unibrow                 string `json:"title33"`
+// 	URL                     string `json:"title34"`
+// 	VideoAssets             string `json:"title35"`
+// 	VideoType               string `json:"title36"`
+// }
+
 type Video struct {
-	AlternateTeaseImages    string `json:"title"`
-	AssociatedVideoPlaylist string `json:"title"`
-	AutoCuration            string `json:"title"`
-	ClosedCaptioning        string `json:"title"`
-	DateAvailable           string `json:"title"`
-	DateBroadcast           string `json:"title"`
-	DateCreated             string `json:"title"`
-	DateModified            string `json:"title"`
-	DatePublished           string `json:"title"`
-	DefaultAssociation      string `json:"title"`
-	Description             string `json:"title"`
-	DocumentTracing         string `json:"title"`
-	Duration                string `json:"title"`
-	Expires                 string `json:"title"`
-	Flag                    string `json:"title"`
-	HasCaptions             string `json:"title"`
-	Headline                string `json:"title"`
-	Hidden                  string `json:"title"`
-	Id                      string `json:"title"`
-	LegacyData              string `json:"title"`
-	LiveVideoStatus         string `json:"title"`
-	MpxMetadata             string `json:"title"`
-	NativeAd                string `json:"title"`
-	Playable                string `json:"title"`
-	PrimaryImage            string `json:"title"`
-	Publisher               string `json:"title"`
-	RelatedUrl              string `json:"title"`
-	Searchable              string `json:"title"`
-	Sentiment               string `json:"title"`
-	Source                  string `json:"title"`
-	Taxonomy                string `json:"title"`
-	TeaseImage              string `json:"title"`
-	//type string `json:"title"`
-	Unibrow     string `json:"title"`
-	Url         string `json:"title"`
-	VideoAssets string `json:"title"`
-	VideoType   string `json:"title"`
+	_id       string
+	videoType string
 }

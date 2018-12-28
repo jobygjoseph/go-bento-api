@@ -1,6 +1,6 @@
 package Video
 
-VideoType := graphql.NewObject(graphql.ObjectConfig{
+Type := graphql.NewObject(graphql.ObjectConfig{
 	Name: "Song",
 	Fields: graphql.Fields{
 		"id": &graphql.Field{
