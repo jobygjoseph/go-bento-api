@@ -1,38 +1,35 @@
 package main
 
 import (
-	"fmt"
+	"net/http"
 
-	"github.com/go-bento-api/store"
+	"github.com/graphql-go/graphql"
+	"github.com/graphql-go/handler"
 )
 
 func main() {
 
-	APIstore := store.CreateStore()
+	//APIstore := store.CreateStore()
 	//fmt.Println(APIstore.Video.FindByID("mmvo16656963832"))
-	fmt.Println(APIstore.Video.FindByID("mmvo16656963832"))
+	// fmt.Println(APIstore.Video.FindByID("mmvo16656963832"))
+
+	description := "![NBC News](http://sslnodeassets.nbcnews.com/cdnassets/projects/site-images/nbcnews-logo-white.png \"NBC NEWS\")The Graphiql IDE for the Bento API"
 
 	// Schema
-	// fields := graphql.Fields{
-	// 	"hello": &graphql.Field{
-	// 		Type: graphql.String,
-	// 		Resolve: func(p graphql.ResolveParams) (interface{}, error) {
-	// 			return "world", nil
-	// 		},
-	// 	},
-	// }
-	// rootQuery := graphql.ObjectConfig{Name: "RootQuery", Fields: fields}
+	fields := graphql.Fields{"Video": schemas.VideoSchema}
 
-	// schemaConfig := graphql.SchemaConfig{Query: graphql.NewObject(rootQuery)}
+	rootQuery := graphql.ObjectConfig{Name: "RootQuery", Fields: fields, Description: description}
 
-	// schema, _ := graphql.NewSchema(schemaConfig)
+	schemaConfig := graphql.SchemaConfig{Query: graphql.NewObject(rootQuery)}
 
-	// h := handler.New(&handler.Config{
-	// 	Schema:   &schema,
-	// 	Pretty:   true,
-	// 	GraphiQL: true,
-	// })
+	schema, _ := graphql.NewSchema(schemaConfig)
 
-	// http.Handle("/graphql", h)
-	// http.ListenAndServe(":8080", nil)
+	h := handler.New(&handler.Config{
+		Schema:   &schema,
+		Pretty:   true,
+		GraphiQL: true,
+	})
+
+	http.Handle("/graphql", h)
+	http.ListenAndServe(":8080", nil)
 }

@@ -1,7 +1,11 @@
-package Video
+package types
 
-Type := graphql.NewObject(graphql.ObjectConfig{
-	Name: "Song",
+import (
+	"github.com/graphql-go/graphql"
+)
+
+Video := graphql.NewObject(graphql.ObjectConfig{
+	Name: "Video",
 	Fields: graphql.Fields{
 		"id": &graphql.Field{
 			Type: graphql.String,
