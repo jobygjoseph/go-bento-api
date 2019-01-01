@@ -1,10 +1,11 @@
 package structs
 
+import "time"
+
 // Video struct
 // type Video struct {
 // 	AlternateTeaseImages    string `json:"title"`
 // 	AssociatedVideoPlaylist string `json:"title2"`
-// 	AutoCuration            string `json:"title3"`
 // 	ClosedCaptioning        string `json:"title4"`
 // 	DateAvailable           string `json:"title5"`
 // 	DateBroadcast           string `json:"title6"`
@@ -15,7 +16,6 @@ package structs
 // 	Description             string `json:"title11"`
 // 	DocumentTracing         string `json:"title12"`
 // 	Duration                string `json:"title13"`
-// 	Expires                 string `json:"title14"`
 // 	Flag                    string `json:"title15"`
 // 	HasCaptions             string `json:"title16"`
 // 	Headline                string `json:"title17"`
@@ -24,7 +24,6 @@ package structs
 // 	LegacyData              string `json:"title20"`
 // 	LiveVideoStatus         string `json:"title21"`
 // 	MpxMetadata             string `json:"title22"`
-// 	NativeAd                string `json:"title23"`
 // 	Playable                string `json:"title24"`
 // 	PrimaryImage            string `json:"title25"`
 // 	Publisher               string `json:"title26"`
@@ -38,10 +37,12 @@ package structs
 // 	Unibrow                 string `json:"title33"`
 // 	URL                     string `json:"title34"`
 // 	VideoAssets             string `json:"title35"`
-// 	VideoType               string `json:"title36"`
 // }
 
 type Video struct {
-	ID        string `bson:"_id"`
-	VideoType string `bson:"videoType"`
+	AutoCuration bool `bson:",omitempty"`
+	Expires      time.Time
+	ID           string `bson:"_id"`
+	NativeAd     bool
+	VideoType    string
 }

@@ -1,8 +1,6 @@
 package schemas
 
 import (
-	"fmt"
-
 	"github.com/go-bento-api/store"
 	"github.com/go-bento-api/types"
 	"github.com/graphql-go/graphql"
@@ -19,7 +17,6 @@ var VideoSchema = &graphql.Field{
 	Resolve: func(params graphql.ResolveParams) (interface{}, error) {
 		//APIstore := params.Context.Value("APIstore")
 		APIstore := store.CreateStore()
-		fmt.Println(APIstore)
 		vidID := params.Args["id"].(string)
 		//vidStore := &store.Video{}
 		//return vidStore.FindByID(vidID), nil
