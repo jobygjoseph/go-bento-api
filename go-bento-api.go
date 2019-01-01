@@ -3,6 +3,7 @@ package main
 import (
 	"net/http"
 
+	"github.com/go-bento-api/schemas"
 	"github.com/graphql-go/graphql"
 	"github.com/graphql-go/handler"
 )
