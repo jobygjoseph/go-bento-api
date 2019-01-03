@@ -137,6 +137,7 @@
   input-imports = [
     "github.com/graphql-go/graphql",
     "github.com/graphql-go/handler",
+    "github.com/mongodb/mongo-go-driver/bson",
     "github.com/mongodb/mongo-go-driver/mongo",
   ]
   solver-name = "gps-cdcl"

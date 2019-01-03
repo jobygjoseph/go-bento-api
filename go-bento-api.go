@@ -13,9 +13,15 @@ import (
 	"github.com/graphql-go/handler"
 )
 
+type key string
+
+const (
+	APIStoreKey key = "APIstore"
+)
+
 func main() {
 
-	APIstore := store.CreateStore()
+	APIstore := &store.CreateStore()
 	//fmt.Println(APIstore.Video.FindByID("mmvo16656963832"))
 	// fmt.Println(APIstore.Video.FindByID("mmvo16656963832"))
 
@@ -37,7 +43,7 @@ func main() {
 	})
 
 	handleGraphqlRequest := func(w http.ResponseWriter, r *http.Request) {
-		ctx := context.WithValue(context.Background(), "APIstore", APIstore)
+		ctx := context.WithValue(context.Background(), APIStoreKey, APIstore)
 		if err := r.ParseForm(); err != nil {
 			fmt.Fprintf(w, "ParseForm() err: %v", err)
 			return
