@@ -42,7 +42,10 @@ func main() {
 
 	handleGraphqlRequest := func(w http.ResponseWriter, r *http.Request) {
 		APIstore := store.CreateStore()
-		ctx := context.WithValue(context.Background(), APIStoreKey, &APIstore)
+		APIStoreContext := map[string]interface{}{
+			"store": &APIstore,
+		}
+		ctx := context.WithValue(context.Background(), APIStoreKey, APIStoreContext)
 		if err := r.ParseForm(); err != nil {
 			fmt.Fprintf(w, "ParseForm() err: %v", err)
 			return
