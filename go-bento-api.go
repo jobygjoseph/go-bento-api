@@ -21,9 +21,7 @@ const (
 
 func main() {
 
-	APIstore := &store.CreateStore()
-	//fmt.Println(APIstore.Video.FindByID("mmvo16656963832"))
-	// fmt.Println(APIstore.Video.FindByID("mmvo16656963832"))
+	//APIstore := store.CreateStore()
 
 	description := "![NBC News](http://sslnodeassets.nbcnews.com/cdnassets/projects/site-images/nbcnews-logo-white.png \"NBC NEWS\")\n\nThe Graphiql IDE for Bento API"
 
@@ -43,7 +41,8 @@ func main() {
 	})
 
 	handleGraphqlRequest := func(w http.ResponseWriter, r *http.Request) {
-		ctx := context.WithValue(context.Background(), APIStoreKey, APIstore)
+		APIstore := store.CreateStore()
+		ctx := context.WithValue(context.Background(), APIStoreKey, &APIstore)
 		if err := r.ParseForm(); err != nil {
 			fmt.Fprintf(w, "ParseForm() err: %v", err)
 			return
